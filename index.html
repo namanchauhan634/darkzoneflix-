@@ -1,262 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DarkZoneFlix</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+<title>DarkZoneFlix</title>
 
-    body {
-      background: #080808;
-      color: white;
-    }
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+}
 
-    header {
-      background: #111;
-      padding: 18px 6%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #222;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+body{
+  background:#080808;
+  color:white;
+}
 
-    .logo {
-      font-size: 25px;
-      font-weight: bold;
-      color: #e50914;
-    }
+header{
+  background:#111;
+  padding:20px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #292929;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-    }
+.logo{
+  color:#e50914;
+  font-size:30px;
+  font-weight:bold;
+}
 
-    .hero {
-      min-height: 420px;
-      padding: 90px 7%;
-      background:
-        linear-gradient(90deg, #080808 20%, rgba(8,8,8,.65), #080808),
-        linear-gradient(135deg, #260000, #080808 65%);
-    }
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:25px;
+  font-size:17px;
+}
 
-    .hero h1 {
-      font-size: 48px;
-      margin-bottom: 15px;
-    }
+nav a:hover{
+  color:#e50914;
+}
 
-    .hero h1 span {
-      color: #e50914;
-    }
+.hero{
+  padding:100px 7%;
+  min-height:520px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  background:linear-gradient(90deg,#080808,#160000);
+}
 
-    .hero p {
-      max-width: 550px;
-      color: #bbb;
-      line-height: 1.6;
-      margin-bottom: 25px;
-    }
+.hero h1{
+  font-size:55px;
+  max-width:700px;
+  margin-bottom:20px;
+}
 
-    .btn {
-      display: inline-block;
-      background: #e50914;
-      color: white;
-      text-decoration: none;
-      padding: 12px 22px;
-      border-radius: 6px;
-      font-weight: bold;
-    }
+.red{
+  color:#e50914;
+}
 
-    .section {
-      padding: 35px 6%;
-    }
+.hero p{
+  color:#bbb;
+  font-size:20px;
+  max-width:650px;
+  line-height:1.6;
+  margin-bottom:30px;
+}
 
-    .section h2 {
-      margin-bottom: 20px;
-    }
+.btn{
+  display:inline-block;
+  width:max-content;
+  padding:15px 25px;
+  background:#e50914;
+  color:white;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:bold;
+}
 
-    #search {
-      width: 100%;
-      max-width: 500px;
-      padding: 13px;
-      background: #151515;
-      border: 1px solid #333;
-      border-radius: 6px;
-      color: white;
-      margin-bottom: 25px;
-      outline: none;
-    }
+.btn:hover{
+  background:#b20710;
+}
 
-    .movies {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 20px;
-    }
+.movies{
+  padding:60px 6%;
+}
 
-    .movie {
-      background: #151515;
-      border-radius: 8px;
-      overflow: hidden;
-      transition: .25s;
-    }
+.movies h2{
+  font-size:35px;
+  margin-bottom:25px;
+}
 
-    .movie:hover {
-      transform: translateY(-5px);
-    }
+.search{
+  width:100%;
+  padding:17px;
+  background:#151515;
+  border:1px solid #333;
+  border-radius:10px;
+  color:white;
+  font-size:17px;
+  margin-bottom:35px;
+}
 
-    .poster {
-      height: 250px;
-      background: linear-gradient(135deg, #400000, #181818);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 45px;
-    }
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:25px;
+}
 
-    .info {
-      padding: 14px;
-    }
+.card{
+  background:#151515;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid #292929;
+  transition:.3s;
+}
 
-    .info h3 {
-      margin-bottom: 8px;
-    }
+.card:hover{
+  transform:translateY(-7px);
+  border-color:#e50914;
+}
 
-    .info p {
-      color: #aaa;
-      font-size: 14px;
-      margin-bottom: 12px;
-    }
+.poster{
+  height:300px;
+  background:linear-gradient(135deg,#400000,#151515);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:55px;
+}
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: #777;
-      border-top: 1px solid #222;
-    }
+.info{
+  padding:18px;
+}
 
-    @media(max-width:600px) {
-      .hero h1 {
-        font-size: 36px;
-      }
+.info h3{
+  font-size:21px;
+  margin-bottom:10px;
+}
 
-      nav a {
-        margin-left: 8px;
-        font-size: 13px;
-      }
-    }
-  </style>
+.info p{
+  color:#aaa;
+  margin-bottom:8px;
+}
+
+.rating{
+  color:#ffd700;
+  margin-bottom:15px;
+}
+
+.about{
+  padding:70px 7%;
+  background:#101010;
+  text-align:center;
+}
+
+.about h2{
+  font-size:35px;
+  margin-bottom:20px;
+}
+
+.about p{
+  color:#aaa;
+  max-width:700px;
+  margin:auto;
+  line-height:1.7;
+}
+
+footer{
+  text-align:center;
+  padding:25px;
+  background:#080808;
+  color:#777;
+}
+
+@media(max-width:600px){
+  .logo{
+    font-size:23px;
+  }
+
+  nav a{
+    margin-left:10px;
+    font-size:14px;
+  }
+
+  .hero{
+    padding:70px 7%;
+  }
+
+  .hero h1{
+    font-size:40px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">DarkZoneFlix</div>
+<header>
+  <div class="logo">DarkZoneFlix</div>
 
-    <nav>
-      <a href="#">Home</a>
-      <a href="#movies">Movies</a>
-      <a href="#about">About</a>
-    </nav>
-  </header>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#movies">Movies</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
 
-  <section class="hero">
-    <h1>Welcome to <span>DarkZoneFlix</span></h1>
-    <p>
-      Discover movies, trailers, ratings and information
-      in one modern cinematic place.
-    </p>
-    <a href="#movies" class="btn">Explore Movies</a>
-  </section>
+<section class="hero" id="home">
+  <h1>
+    Welcome to <span class="red">DarkZoneFlix</span>
+  </h1>
 
-  <section class="section" id="movies">
-    <h2>🎬 Movies</h2>
+  <p>
+    Discover movies, ratings, genres, trailers and useful information
+    in one modern cinematic place.
+  </p>
 
-    <input
-      type="text"
-      id="search"
-      placeholder="Search movies..."
-      onkeyup="searchMovies()"
-    >
+  <a href="#movies" class="btn">Explore Movies</a>
+</section>
 
-    <div class="movies" id="movieList">
+<section class="movies" id="movies">
 
-      <div class="movie">
-        <div class="poster">🎬</div>
-        <div class="info">
-          <h3>Movie One</h3>
-          <p>Action • 2026</p>
-          <a class="btn" href="#" onclick="watchMovie()">Trailer</a>
-        </div>
+  <h2>🎬 Movies</h2>
+
+  <input
+    type="text"
+    id="search"
+    class="search"
+    placeholder="Search movies..."
+  >
+
+  <div class="grid" id="movieGrid">
+
+    <div class="card" data-name="Interstellar">
+      <div class="poster">🎬</div>
+      <div class="info">
+        <h3>Interstellar</h3>
+        <p>Science Fiction • Adventure</p>
+        <div class="rating">⭐ 8.7/10</div>
+        <a class="btn" href="https://www.youtube.com/results?search_query=Interstellar+official+trailer" target="_blank">
+          Official Trailer
+        </a>
       </div>
-
-      <div class="movie">
-        <div class="poster">🍿</div>
-        <div class="info">
-          <h3>Movie Two</h3>
-          <p>Drama • 2026</p>
-          <a class="btn" href="#" onclick="watchMovie()">Trailer</a>
-        </div>
-      </div>
-
-      <div class="movie">
-        <div class="poster">⭐</div>
-        <div class="info">
-          <h3>Movie Three</h3>
-          <p>Comedy • 2026</p>
-          <a class="btn" href="#" onclick="watchMovie()">Trailer</a>
-        </div>
-      </div>
-
-      <div class="movie">
-        <div class="poster">🔥</div>
-        <div class="info">
-          <h3>Movie Four</h3>
-          <p>Thriller • 2026</p>
-          <a class="btn" href="#" onclick="watchMovie()">Trailer</a>
-        </div>
-      </div>
-
     </div>
-  </section>
 
-  <section class="section" id="about">
-    <h2>About DarkZoneFlix</h2>
-    <p style="color:#aaa; line-height:1.6;">
-      DarkZoneFlix is a movie discovery website for finding
-      movie information, trailers and legal viewing options.
-    </p>
-  </section>
+    <div class="card" data-name="Inception">
+      <div class="poster">🎬</div>
+      <div class="info">
+        <h3>Inception</h3>
+        <p>Action • Science Fiction</p>
+        <div class="rating">⭐ 8.8/10</div>
+        <a class="btn" href="https://www.youtube.com/results?search_query=Inception+official+trailer" target="_blank">
+          Official Trailer
+        </a>
+      </div>
+    </div>
 
-  <footer>
-    © 2026 DarkZoneFlix • Movie Discovery Platform
-  </footer>
+    <div class="card" data-name="Avengers Endgame">
+      <div class="poster">🎬</div>
+      <div class="info">
+        <h3>Avengers: Endgame</h3>
+        <p>Action • Superhero</p>
+        <div class="rating">⭐ 8.4/10</div>
+        <a class="btn" href="https://www.youtube.com/results?search_query=Avengers+Endgame+official+trailer" target="_blank">
+          Official Trailer
+        </a>
+      </div>
+    </div>
 
-  <script>
-    function searchMovies() {
-      let input = document.getElementById("search").value.toLowerCase();
-      let movies = document.querySelectorAll(".movie");
+    <div class="card" data-name="The Dark Knight">
+      <div class="poster">🎬</div>
+      <div class="info">
+        <h3>The Dark Knight</h3>
+        <p>Action • Crime • Drama</p>
+        <div class="rating">⭐ 9.0/10</div>
+        <a class="btn" href="https://www.youtube.com/results?search_query=The+Dark+Knight+official+trailer" target="_blank">
+          Official Trailer
+        </a>
+      </div>
+    </div>
 
-      movies.forEach(movie => {
-        let title = movie.querySelector("h3").innerText.toLowerCase();
+  </div>
+</section>
 
-        movie.style.display =
-          title.includes(input) ? "block" : "none";
-      });
-    }
+<section class="about" id="about">
+  <h2>About DarkZoneFlix</h2>
+  <p>
+    DarkZoneFlix is a movie discovery website where users can explore
+    movie information, genres, ratings and official trailers.
+  </p>
+</section>
 
-    function watchMovie() {
-      alert("Add an official trailer or legal streaming link here.");
-    }
-  </script>
-
-</body>
-  </html>
+<footer>
+  © 2026 DarkZone
